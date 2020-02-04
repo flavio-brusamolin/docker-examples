@@ -1,0 +1,17 @@
+version: '3'
+services:
+    database:
+        image: mongo:4.2.3
+    backend:
+        image: node:12.14.1
+        volumes: 
+            - ./backend:/backend
+        ports:
+            - 3000:3000
+        command: bash -c "cd /backend && npm i && npm i -g nodemon && nodemon src/server"
+    frontend:
+        image: nginx:1.16.1
+        volumes: 
+            - ./frontend:/usr/share/nginx/html
+        ports:
+            - 80:80

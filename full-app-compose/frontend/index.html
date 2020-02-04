@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Docker Example</title>
+</head>
+
+<body>
+    <h1>Frontend</h1>
+
+    <script>
+        fetch('http://localhost:3000/clients')
+            .then(data => data.json()
+            .then(clients => console.log(clients)))
+            .catch(err => console.log(err))
+    </script>
+</body>
+
+</html>
